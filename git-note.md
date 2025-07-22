@@ -1,0 +1,63 @@
+git과 VS Code를 연동해서 프로젝트를 버전 관리하려면 다음 순서로 진행하면 됨.
+한 번만 설정해두면 이후에 매우 편하게 사용 가능.
+
+처음에 TERMINAL (Ctrl+` 또는 위의 메뉴에서 Terminal 생성)에서 Command Prompt로 들어가기.
+
+1. Git 설치 확인
+git --version
+
+버전이 나오면 설치 완료
+안 나올 경우 https://git-scm.com에서 Git 설치
+
+2. Git 초기화
+git init
+
+현재 폴더에 .git이라는 숨김 폴더가 생김 ( 이 폴더가 Git 저장소 역할)
+
+3. 사용자 정보 설정 (처음 한 번만)
+git config --global user.name "당신의 이름"
+git config --global user.email "당신의 이메일"
+
+Git 커밋할 때 작성자로 등록됨.
+--global을 붙이면 컴퓨터 전체에서 동일한 정보를 씀.
+
+4. VS Code 연동 방법
+
+옵션 A: VS Code에서 Git UI 사용
+--1 VS Code 열기
+--2 왼쪽 사이드바의 소스 제어 (Source Control) 탭 클릭 (🔃 모양)
+--3 "변경 사항" 목록에 파일이 뜨면 Git이 연동된 것
+
+옵션 B: 터미널에서 직접 명령어 사용
+git add .
+git commit -m "첫 커밋"
+
+.은 모든 파일을 Git에 추가하겠다는 뜻
+-m은 커밋 메시지를 붙이는 옵션
+
+5. GitHub와 연결하고 싶을 경우 (선택)
+
+--1 GitHub에 새 레포지토리 생성
+--2 아래 명령어로 원격 저장소 연결
+
+git remote add origin https://github.com/사용자명/저장소이름.git
+git push -u origin main
+
+※main대신 master일 수도 있으니 오류 나면 git branch로 확인
+
+
+★ 마무리 예시 ★
+git init
+git add .
+git commit -m "처음 커밋"
+
+#원격 저장소 연결할 경우 ↓
+git remote add origin https://github.com/사용자명/저장소명.git
+git push -u origin main
+
+
+★★ 추가적인 내용 ★★
+변경된 파일 상태 확인   git status
+특정 파일만 추가       git add 파일이름
+이전 커밋 기록 보기     git log
+파일 변경 내역 보기     git diff
