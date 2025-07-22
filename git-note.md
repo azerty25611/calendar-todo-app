@@ -61,3 +61,9 @@ git push -u origin main
 특정 파일만 추가       git add 파일이름
 이전 커밋 기록 보기     git log
 파일 변경 내역 보기     git diff
+
+
+만약 GitHub에서 기본 브랜치를 main으로 바꾸고 싶다면?
+git branch -m master main         # 브랜치 이름 변경
+git push -u origin main           # 새 이름으로 푸시
+git push origin --delete master   # (선택) 기존 master 삭제
