@@ -67,3 +67,25 @@ git push -u origin main
 git branch -m master main         # 브랜치 이름 변경
 git push -u origin main           # 새 이름으로 푸시
 git push origin --delete master   # (선택) 기존 master 삭제
+
+--------------------------------------------------------------------
+
+★★★ 만약 "원격(GitHub) 저장소에 로컬에 없는 내용이 이미 있으므로, 강제로 push할 수 없습니다" 라는 에러 메시지가 뜰 경우, GitHub 저장소에 이미 README 같은 파일이 있거나, 누군가가 먼저 커밋을 했기 때문에 로컬 커밋을 그냥 푸시하면 충돌 위험이 있어서 Git이 막는 것임.
+
+
+해결 방법 2가지 (상황에 따라 선택)
+
+● ● ● 방법 1.pull 해서 병합한 후 푸시 (권장)
+
+git pull origin main --rebase
+git push -u origin main
+
+이 방식은 GitHub에 이미 있는 커밋(ex: README.md)을 로컬에 병합한 후 push하는 안전한 방법.
+
+● ● ● 방법 2.강제로 덮어쓰기 (--force)
+GitHub에 있는 파일이 완전히 사라짐. (예: README.md 초기화됨)
+
+git push -u origin main --force
+
+강제로 로컬 상태를 GitHub 저장소에 덮어쓰기 함.
+GitHub에서 만들었던 README 같은 게 있다면 사라짐.
