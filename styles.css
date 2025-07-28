@@ -1,0 +1,182 @@
+/* 전체 페이지의 기본 스타일을 설정합니다. */
+body {
+    font-family: Arial, sans-serif; /*글씨체를 Arial 또는 기본 san-serif로 설정*/
+    display: flex; /*요소들을 유연하게 배치하는 방식 사용*/
+    flex-direction: column; /*요소들을 세로로 쌓이게 설정*/
+    align-items: center; /*요소들을 가로 방향 중앙에 정렬*/
+    height: 100vh; /*페이지 높이를 설정*/
+    margin: 0; /*페이지 바깥 여백 제거*/
+    background-color: rgb(190, 237, 255); /*배경색을 설정*/
+
+    /*전체 페이지에 이미지로 배경 추가하기. 사진 링크는 출처 표시 없이도 상업적으로 자유롭게 사용 가능한 Wikimedia Commons의 "No restrictions" 이미지임. */
+    background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Kawaii_earth_clipart.svg/640px-Kawaii_earth_clipart.svg.png);
+    /*background-size: cover;         /*배경을 화면에 맞춤*/
+    /*background-repeat: no-repeat;   /*반복 없음*/
+    /*background-position: center;    /*가운데 정렬*/
+}
+
+/*달력을 담는 컨테이너 스타일*/
+.calendar-container {
+    width: 400px; /*달력 너비를 설정*/
+    padding: 10px 20px; /*달력 안쪽 여백을 설정*/
+    /*background-color: white; /*달력 배경을 설정*/
+    background: linear-gradient(
+        to bottom,
+        rgb(113, 224, 243, 0.7),
+        rgba(99, 243, 33, 0.6),
+        rgba(247, 20, 20, 0.5)
+    );
+    border: 3px solid black;
+    border-radius: 20px; /*달력 모서리를 둥글게*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*달력에 부드러운 그림자 효과 추가*/
+    margin-top: 100px; /* 달력을 맨 위에서 아래로 간격을 내림*/
+}
+
+/* 달력 상단의 헤더(이전/다음 버튼과 연월 표시) 스타일 */
+.calendar-header {
+    display: flex; /* 헤더 요소들을 가로로 배치 */
+    justify-content: space-between; /* 요소들을 양쪽 끝으로 분산 배치 */
+    align-items: center; /* 세로 방향 중앙 정렬 */
+    margin-bottom: 5px; /* 헤더 아래 여백 ?픽셀 */
+}
+
+/* 현재 연월을 표시하는 텍스트 스타일 */
+#current-month {
+    font-size: 1.4em; /* 글씨 크기를 기본보다 ??배 크게 */
+    font-weight: bold; /* 글씨를 굵게 */
+}
+
+/* 이전/다음 버튼 스타일 */
+#prev-month, #next-month {
+    padding: 4px 8px; /* 안쪽 여백 위아래 4픽셀, 좌우 8픽셀 */
+    border: 2px solid black; /* 검은색 3px 테두리 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 손가락 모양 */
+    background-color: rgb(235, 235, 233); /*기본 배경색*/
+}
+
+/* 이전/다음 버튼 호버 효과 */
+#prev-month:hover, #next-month:hover {
+    background-color: rgb(168, 168, 168);
+}
+
+/* 달력의 날짜 그리드 스타일 */
+.calendar-grid {
+    display: grid; /* 날짜를 격자 형태로 배치 */
+    grid-template-columns: repeat(7, 1fr); /* 7열로 나누어 일주일 표시 */
+    gap: 5px; /* 날짜 칸 사이 간격 ?픽셀 */
+    text-align: center; /* 날짜 텍스트를 가운데 정렬 */
+}
+
+/* 달력의 각 날짜 칸 스타일 */
+.calendar-grid div {
+    width:20px;
+    height:20px;
+    padding: 10px 10px; /* 날짜 칸 안쪽 여백. 차례대로 위아래픽셀 좌우픽셀 설정 */
+    border: 3px solid rgb(26, 109, 177); /* ??색 테두리(?픽셀 두께) */
+    background-color: rgb(250, 255, 209);
+    cursor: pointer; /* 마우스 커서를 손가락 모양으로 (클릭 가능 표시) */
+    border-radius: 8px;
+}
+
+/* 날짜 칸에 마우스를 올렸을 때 효과 */
+.calendar-grid div:hover {
+    background-color: yellow; /* ?색 배경으로 변경 */
+}
+
+/* TODO 리스트를 담는 컨테이너 스타일 */
+.todo-list-container {
+    display: flex; /* TODO 항목들을 유연하게 배치 */
+    flex-direction: column; /* TODO 항목을 세로로 쌓이게 설정 */
+    gap: 10px; /* TODO 항목 사이 간격 ?픽셀 */
+    width: 400px; /* 컨테이너 너비 ??픽셀 */
+    padding: 10px; /* 컨테이너 안쪽 여백 ??픽셀 */
+    margin-top: 20px; /*달력과 TODO 리스트 사이 간격 ??픽셀*/
+    
+}
+
+/* 개별 TODO 항목 스타일 */
+.todo-item {
+    display: flex; /* 텍스트와 버튼을 가로로 배치 */
+    align-items: center; /* 세로 방향 중앙 정렬 */
+    padding: 6px 10px; /* 안쪽 여백 위아래 ?픽셀, 좌우 ?픽셀 */
+    background-color: rgb(255, 255, 255); /* ?색 배경 */
+    border: 3px solid black; /* ??색 테두리(?픽셀 두께) */
+    border-radius: 10px; /* 모서리를 ??픽셀만큼 둥글게 */
+    gap: 8px; /* 텍스트와 버튼 사이 간격 ?픽셀 */
+}
+
+/* TODO 항목의 텍스트 스타일 */
+.todo-item span {
+    flex: 1; /* 텍스트가 가능한 최대 너비를 차지하도록 */
+    word-wrap: break-word; /* 긴 텍스트를 자동으로 줄바꿈 */
+    white-space: normal; /* 텍스트를 자연스럽게 표시 (한 글자씩 줄바꿈 방지) */
+    line-height: 1.4; /* 텍스트 줄 간격을 ??배로 설정 (가독성 향상) */
+}
+
+/* 수정/삭제 버튼을 묶는 컨테이너 스타일 */
+.todo-buttons {
+    display: flex; /* 버튼들을 가로로 배치 */
+    gap: 5px; /* 수정/삭제 버튼 사이 간격 ?픽셀 */
+}
+
+/* 삭제 버튼 스타일 */
+.delete-button {
+    padding: 4px 8px; /* 안쪽 여백 위아래 ?픽셀, 좌우 ?픽셀 */
+    background-color: #ffcccc; /* ??색 배경 */
+    border: 2px solid black; /* 테두리 제거 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 손가락 모양 */
+    font-size: 0.8em; /* 글씨 크기 기본보다 ??배 작거나 크게 설정 */
+}
+
+/* 삭제 버튼에 마우스 올렸을 때 효과 */
+.delete-button:hover {
+    background-color: #fa7e7e; /* ??색으로 변경 */
+}
+
+/* 수정 버튼 스타일 */
+.edit-button {
+    padding: 4px 8px; /* 안쪽 여백 위아래 ?픽셀, 좌우 ?픽셀 */
+    background-color: rgb(153, 221, 241); /* ??색 배경 */
+    border: 2px solid black; /* 테두리 제거 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 손가락 모양 */
+    font-size: 0.8em; /* 글씨 크기 기본보다 ?배 작거나 크게 설정 */
+    color: black; /* 글씨 색상 */
+}
+
+/* 수정 버튼에 마우스 올렸을 때 효과 */
+.edit-button:hover {
+    background-color: rgb(26, 183, 231); /* ??색으로 변경 */
+}
+
+/* 입력란과 추가 버튼을 담는 컨테이너 스타일 */
+.todo-input-container {
+    display: flex; /* 입력란과 버튼을 가로로 배치 */
+    gap: 10px; /* 입력란과 버튼 사이 간격 ??픽셀 */
+    margin-bottom: 20px; /* 아래 여백 ??픽셀로 늘림 (입력란과 달력 간격) */
+}
+
+/* TODO 입력란 스타일 */
+#todo-input {
+    flex: 1; /* 입력란이 가능한 최대 너비를 차지 */
+    padding: 6px; /* 안쪽 여백 ?픽셀 */
+    border: 1px solid #ddd; /* 테두리색 */
+    border-radius: 4px; /* 모서리 둥글게 */
+}
+
+/* 추가 버튼 스타일 */
+#add-todo {
+    padding: 6px 12px; /* 안쪽 여백 위아래 ?픽셀, 좌우 ?픽셀 */
+    background-color: skyblue; /* 배경색 */
+    color: black; /* 글씨 색상 */
+    border: 2px solid black; /* 테두리 제거 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 손가락 모양 */
+}
+
+/* 추가 버튼에 마우스 올렸을 때 효과 */
+#add-todo:hover {
+    background-color: rgb(26,183,231); /* ??색으로 변경 */
+}

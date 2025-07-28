@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単なカレンダー</title>
+    <style>
+        .calendar-title {
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            color: rgb(51, 62, 219);
+            margin-bottom: 10px; /* 아래쪽에 공간 설정 */
+            text-align: center;
+            /*text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000; /* 검은색 2px 테두리 효과 */
+            
+        }
+        h2{
+            font-size: 25px;
+            color: rgb(224, 72, 61);
+            margin-bottom: 10px; /* 아래쪽에 공간 설정 */
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">   <!-- 스타일을 별도 파일(styles.css)로 분리하여 적용 -->
+</head>
+<body>
+    <div class="calendar-container">    <!-- 전체 달력 구조를 감싸는 컨테이너 -->
+        <h1 class="calendar-title">カレンダーメモ帳 &#x1F4DD</h1>   <!-- 달력 제목 -->
+        <h2>日程ごとに頑張りましょう！&#x1F60E;</h2>    <!--힘내자는 문구-->
+        <div class="calendar-header">   <!--달력의 상단 영역-->
+            <button id="prev-month">前へ</button>   <!--이전 달로 이동 버튼-->
+            <h1 id="current-month"></h1>    <!--현재 연도와 월을 표시하는 영역-->
+            <button id="next-month">次へ</button>   <!--다음 달로 이동 버튼-->
+        </div>
+        <!-- 할 일을 입력하는 영역 -->
+        <div class="todo-input-container">
+            <input type="text" id="todo-input" placeholder="やることを入力してください..."> <!--할 일을 입력하는 텍스트 상자-->
+            <button id="add-todo">追加</button> <!--할 일을 추가하는 버튼-->
+        </div>
+        <div class="calendar-grid" id="calendar-grid">
+            <!-- 달력의 날짜 셀이 자바스크립트로 여기에 생성됨 -->
+        </div>
+    </div>
+
+    <!-- 날짜를 클릭하면 해당 날짜에 대한 할 일 목록이 이곳에 표시됨 -->
+    <div id="todo-list-container" class="todo-list-container"></div>
+
+    <!-- 동작을 담당하는 자바스크립트(JS) 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
