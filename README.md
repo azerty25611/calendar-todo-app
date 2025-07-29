@@ -20,5 +20,5 @@
 https://azerty25611.github.io/calendar-todo-app/
 
 ## 作成者
-GitHub: @azerty25611
+GitHub : @azerty25611
 - https://github.com/azerty25611
