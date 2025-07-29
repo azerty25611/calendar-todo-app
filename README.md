@@ -18,8 +18,8 @@
 2. index.htmlファイルをブラウザから開けるとすぐ実行します。
 3. あるいは下の配布リンクから直接使用してください。
 
-**配布住所**
-https://azerty25611.github.io/calendar-todo-app/
+**配布住所 👍**
+- https://azerty25611.github.io/calendar-todo-app/
 
 ## 作成者
 GitHub : @azerty25611
